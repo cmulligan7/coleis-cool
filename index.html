@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COLE IS COOL</title>
+  <meta name="description" content="An official statement confirming that Cole is, in fact, cool." />
+  <style>
+    :root {
+      --sky: #1e90ff;
+      --deep-blue: #0a4bd1;
+      --ink: #04204d;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at 50% 35%, var(--sky), var(--deep-blue));
+      color: #fff;
+      font-family: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6vmin;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 15vw, 12rem);
+      line-height: 0.92;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      text-shadow: 0 6px 0 rgba(0, 0, 0, 0.12), 0 16px 40px rgba(0, 0, 0, 0.3);
+      -webkit-text-stroke: 2px var(--ink);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    h1 .shades {
+      display: inline-block;
+      -webkit-text-stroke: 0;
+      animation: tilt 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-12px); }
+    }
+    @keyframes tilt {
+      0%, 100% { transform: rotate(-6deg); }
+      50%      { transform: rotate(6deg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      h1, h1 .shades { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Cole Is<br />Cool <span class="shades" aria-hidden="true">😎</span></h1>
+</body>
+</html>
