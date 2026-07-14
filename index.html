@@ -22,10 +22,12 @@
       color: #fff;
       font-family: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 6vmin;
+      gap: 5vmin;
       overflow-x: hidden;
     }
 
@@ -55,6 +57,28 @@
       50%      { transform: rotate(6deg); }
     }
 
+    .cool-link {
+      font-size: clamp(1rem, 3.4vw, 1.6rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .cool-link a {
+      color: #fff;
+      text-decoration: underline;
+      text-decoration-thickness: 0.12em;
+      text-underline-offset: 0.18em;
+      transition: color 0.15s ease, transform 0.15s ease;
+      display: inline-block;
+    }
+
+    .cool-link a:hover,
+    .cool-link a:focus-visible {
+      color: var(--ink);
+      transform: scale(1.06);
+    }
+
     @media (prefers-reduced-motion: reduce) {
       h1, h1 .shades { animation: none; }
     }
@@ -62,5 +86,7 @@
 </head>
 <body>
   <h1>Cole Is<br />Cool <span class="shades" aria-hidden="true">😎</span></h1>
+
+  <p class="cool-link"><a href="https://ericisnot.cool">You know who is not cool?</a></p>
 </body>
 </html>
