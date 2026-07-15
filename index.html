@@ -52,14 +52,19 @@
       font-weight: 900;
       letter-spacing: -0.02em;
       text-transform: uppercase;
-      text-shadow: 0 6px 0 rgba(0, 0, 0, 0.12), 0 16px 40px rgba(0, 0, 0, 0.3);
-      -webkit-text-stroke: 2px var(--ink);
+      /* Outline drawn with layered shadows (renders reliably on mobile), plus depth */
+      text-shadow:
+        2px 2px 0 var(--ink), -2px 2px 0 var(--ink),
+        2px -2px 0 var(--ink), -2px -2px 0 var(--ink),
+        2px 0 0 var(--ink), -2px 0 0 var(--ink),
+        0 2px 0 var(--ink), 0 -2px 0 var(--ink),
+        0 10px 22px rgba(0, 0, 0, 0.3);
       animation: float 3s ease-in-out infinite;
     }
 
     h1 .shades {
       display: inline-block;
-      -webkit-text-stroke: 0;
+      text-shadow: none;
       animation: tilt 3s ease-in-out infinite;
     }
 
