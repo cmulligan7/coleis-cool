@@ -99,11 +99,46 @@
       transform: scale(1.06);
     }
 
+    /* Shown only when the visitor arrives via ?badMove=true */
+    .wrong {
+      display: none;
+      font-size: clamp(3.5rem, 19vw, 15rem);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #ff2e2e;
+      text-shadow:
+        3px 3px 0 #3d0000, -3px 3px 0 #3d0000,
+        3px -3px 0 #3d0000, -3px -3px 0 #3d0000,
+        3px 0 0 #3d0000, -3px 0 0 #3d0000,
+        0 3px 0 #3d0000, 0 -3px 0 #3d0000,
+        0 12px 26px rgba(0, 0, 0, 0.4);
+      animation: wrong-shake 0.5s ease-in-out 4;
+    }
+
+    .wrong.show { display: block; }
+
+    @keyframes wrong-shake {
+      0%, 100% { transform: translateX(0) rotate(0deg); }
+      25%      { transform: translateX(-12px) rotate(-3deg); }
+      75%      { transform: translateX(12px) rotate(3deg); }
+    }
+
   </style>
 </head>
 <body>
+  <div id="wrong" class="wrong">Wrong</div>
+
   <h1>Cole Is<br />Cool <span class="shades" aria-hidden="true">😎</span></h1>
 
   <p class="cool-link"><a href="https://ericisnot.cool">You know who is not cool?</a></p>
+
+  <script>
+    // Someone who tried "coleisnot.cool" gets redirected here with ?badMove=true
+    if (new URLSearchParams(location.search).get('badMove') === 'true') {
+      document.getElementById('wrong').classList.add('show');
+    }
+  </script>
 </body>
 </html>
